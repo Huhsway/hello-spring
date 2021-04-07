@@ -9,7 +9,11 @@ import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository){
+        this.memberRepository = memberRepository;
+    }
 
     // 회원가입
     public Long join(Member member){
@@ -21,7 +25,7 @@ public class MemberService {
     private void validateDuplicateMember(Member member) {
         memberRepository.findByName(member.getName())
                         .ifPresent(m -> { // ifPresent는 result에 값이 있으면 이라는 말 Optional을 한번 감싸면 이렇게 if문 안쓰고 ifPresent 이런걸 쓸 수 있다.
-                            throw new IllegalStateException("이미 존재하는 회원입니다.")
+                            throw new IllegalStateException("이미 존재하는 회원입니다.");
                         });
     }
 
