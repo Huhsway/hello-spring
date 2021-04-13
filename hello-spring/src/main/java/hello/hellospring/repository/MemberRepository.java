@@ -1,10 +1,12 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+//@Repository // 스프링 컨테이너에 Repository를 등록
 public interface MemberRepository {
     Member save(Member member);
     Optional<Member> findById(Long id); // Optional은 findById나 findByName을 해서 만약 없는 값이면 NULL을 반환할텐데 이 경우 Optional로 감싸서 반환하면 안전하다
