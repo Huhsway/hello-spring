@@ -21,6 +21,7 @@ class MemberServiceIntegrationTest {
     @Autowired MemberRepository memberRepository;
 
     @Test
+//    @Commit // DB에 반영이 된다
     void 회원가입() {
         // given
         Member member = new Member();

@@ -1,8 +1,14 @@
 package hello.hellospring.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Member {
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+//    @Column(name = "username") // db의 컬럼 명을 username으로 설정
     private String name;
 
     public Long getId() {
